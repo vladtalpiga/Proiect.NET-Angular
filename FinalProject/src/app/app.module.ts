@@ -6,17 +6,21 @@ import { AppComponent } from './app.component';
 import { ClientsListComponent } from './components/clients/clients-list/clients-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddClientComponent } from './components/clients/add-client/add-client.component';
+import { FormsModule } from '@angular/forms';
+import { EditClientComponent } from './components/clients/edit-client/edit-client.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClientsListComponent,
-    AddClientComponent
+    AddClientComponent,
+    EditClientComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
