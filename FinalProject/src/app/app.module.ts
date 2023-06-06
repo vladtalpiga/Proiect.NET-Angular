@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { ClientsListComponent } from './components/clients/clients-list/clients-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddClientComponent } from './components/clients/add-client/add-client.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditClientComponent } from './components/clients/edit-client/edit-client.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
@@ -24,7 +24,8 @@ import { SignupComponent } from './components/signup/signup.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
