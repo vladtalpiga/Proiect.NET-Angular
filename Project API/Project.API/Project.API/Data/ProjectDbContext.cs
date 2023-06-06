@@ -8,5 +8,12 @@ namespace Project.API.Data
         public ProjectDbContext(DbContextOptions options) : base(options) { }
 
         public DbSet<Client> Clients { get; set; }
+
+        public DbSet<User> Users { get; set; }
+
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<User>().ToTable("users");
+        //}
     }
 }

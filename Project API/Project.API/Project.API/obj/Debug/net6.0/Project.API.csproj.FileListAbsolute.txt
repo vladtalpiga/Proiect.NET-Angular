@@ -80,3 +80,4 @@ C:\Users\VLAD\Desktop\Proiect.net\Project API\Project.API\Project.API\obj\Debug\
 C:\Users\VLAD\Desktop\Proiect.net\Project API\Project.API\Project.API\obj\Debug\net6.0\Project.API.pdb
 C:\Users\VLAD\Desktop\Proiect.net\Project API\Project.API\Project.API\obj\Debug\net6.0\Project.API.genruntimeconfig.cache
 C:\Users\VLAD\Desktop\Proiect.net\Project API\Project.API\Project.API\obj\Debug\net6.0\ref\Project.API.dll
+C:\Users\VLAD\Desktop\Proiect.net\Project API\Project.API\Project.API\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
