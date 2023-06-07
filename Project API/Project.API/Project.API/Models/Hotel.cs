@@ -9,5 +9,7 @@
         //price per night
         public City City { get; set; }
         public int CityId { get; set; }
+        public Manager Manager { get; set; }
+        public List<Facility> Facilities { get; set; }
     }
 }

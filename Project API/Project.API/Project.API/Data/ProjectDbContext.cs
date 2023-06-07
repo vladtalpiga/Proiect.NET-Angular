@@ -11,6 +11,8 @@ namespace Project.API.Data
         public DbSet<User> Users { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<Hotel> Hotels { get; set; }
+        public DbSet<Manager> Manager { get; set; } 
+        public DbSet<Facility> Facilities { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
