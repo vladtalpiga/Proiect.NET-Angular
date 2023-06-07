@@ -10,10 +10,10 @@ namespace Project.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ProjectDbContext _authContext;
+        private readonly ProjectDbContext _projectDbContext;
         public UserController(ProjectDbContext projectDbContext)
         {
-            _authContext = projectDbContext;
+            _projectDbContext = projectDbContext;
         }
 
         [HttpPost("authenticate")]
@@ -22,7 +22,7 @@ namespace Project.API.Controllers
             if (userObj == null)
                 return BadRequest();
 
-            var user = await _authContext.Users.FirstOrDefaultAsync(x => x.Username == userObj.Username && x.Password == userObj.Password);
+            var user = await _projectDbContext.Users.FirstOrDefaultAsync(x => x.Username == userObj.Username && x.Password == userObj.Password);
             
             if (user == null)
                 return NotFound(new {Message = "User not found!"});
@@ -36,9 +36,69 @@ namespace Project.API.Controllers
             if (userObj == null)
                 return BadRequest();
             
-            await _authContext.Users.AddAsync(userObj);
-            await _authContext.SaveChangesAsync();
+            await _projectDbContext.Users.AddAsync(userObj);
+            await _projectDbContext.SaveChangesAsync();
             return Ok(new { Message = "User registered!" });
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _projectDbContext.Users.ToListAsync();
+            return Ok(users);
+        }
+
+        [HttpGet]
+        [Route("{id:int}")]
+        public async Task<IActionResult> GetUser([FromRoute] int id)
+        {
+            var user = await _projectDbContext.Users.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            return Ok(user);
+        }
+
+        [HttpPut]
+        [Route("{id:int}")]
+        public async Task<IActionResult> UpdateUser([FromRoute] int id, User updateUserRequest)
+        {
+            var user = await _projectDbContext.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            user.FirstName = updateUserRequest.FirstName;
+            user.LastName = updateUserRequest.LastName;
+            user.Email = updateUserRequest.Email;
+            user.Username = updateUserRequest.Username;
+            user.Password = updateUserRequest.Password;
+
+            await _projectDbContext.SaveChangesAsync();
+
+            return Ok(user);
+        }
+
+        [HttpDelete]
+        [Route("{id:int}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] int id)
+        {
+            var user = await _projectDbContext.Users.FindAsync(id);
+
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            _projectDbContext.Users.Remove(user);
+            await _projectDbContext.SaveChangesAsync();
+
+            return Ok(user);
         }
     }
 }
