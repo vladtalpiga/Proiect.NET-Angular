@@ -5,11 +5,12 @@ namespace Project.API.Data
 {
     public class ProjectDbContext : DbContext
     {
-        public ProjectDbContext(DbContextOptions options) : base(options) { }
+        public ProjectDbContext(DbContextOptions<ProjectDbContext> options) : base(options) { }
 
         public DbSet<Client> Clients { get; set; }
-
         public DbSet<User> Users { get; set; }
+        public DbSet<City> Cities { get; set; }
+        public DbSet<Hotel> Hotels { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{

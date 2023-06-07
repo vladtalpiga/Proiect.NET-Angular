@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Project.API.Data;
 
@@ -11,9 +12,11 @@ using Project.API.Data;
 namespace Project.API.Migrations
 {
     [DbContext(typeof(ProjectDbContext))]
-    partial class ProjectDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230607154948_city-hotels")]
+    partial class cityhotels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -30,6 +33,9 @@ namespace Project.API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int?>("CityId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
 
@@ -37,6 +43,8 @@ namespace Project.API.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CityId");
 
                     b.ToTable("Cities");
                 });
@@ -125,10 +133,17 @@ namespace Project.API.Migrations
                     b.ToTable("Users");
                 });
 
+            modelBuilder.Entity("Project.API.Models.City", b =>
+                {
+                    b.HasOne("Project.API.Models.City", null)
+                        .WithMany("Cities")
+                        .HasForeignKey("CityId");
+                });
+
             modelBuilder.Entity("Project.API.Models.Hotel", b =>
                 {
                     b.HasOne("Project.API.Models.City", "City")
-                        .WithMany("Hotels")
+                        .WithMany()
                         .HasForeignKey("CityId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -138,7 +153,7 @@ namespace Project.API.Migrations
 
             modelBuilder.Entity("Project.API.Models.City", b =>
                 {
-                    b.Navigation("Hotels");
+                    b.Navigation("Cities");
                 });
 #pragma warning restore 612, 618
         }
