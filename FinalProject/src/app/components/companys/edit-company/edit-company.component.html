@@ -1,0 +1,29 @@
+<div class="container my-5">
+    <h1 class="mb-3">Edit company information</h1>
+	<div class="row">
+		<div class="col-6">
+			<form #form="ngForm" (ngSubmit)="updateCompany()">
+                <div class="mb-3">
+					<label for="id" class="form-label">Id</label>
+					<input type="text" class="form-control" id="id" readonly name="id" [(ngModel)]="companyDetails.id">
+				</div>
+				<div class="mb-3">
+					<label for="name" class="form-label">Name</label>
+					<input type="text" class="form-control" id="name" name="name" [(ngModel)]="companyDetails.name">
+				</div>
+				<div class="mb-3">
+					<label for="location" class="form-label">Location</label>
+					<input type="text" class="form-control" id="location" name="location" [(ngModel)]="companyDetails.location">
+				</div>
+				<div class="mb-3">
+					<label for="nrEmployees" class="form-label">Number of Employees</label>
+					<input type="number" class="form-control" id="nrEmployees" name="nrEmployees" [(ngModel)]="companyDetails.nrEmployees">
+				</div>
+				
+				<button type="submit" style="margin-right: 1rem;" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-danger" (click)="deleteCompany(companyDetails.id)">Delete</button>
+
+			</form>
+		</div>
+	</div>
+</div>

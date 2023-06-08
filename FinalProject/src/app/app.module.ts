@@ -12,6 +12,9 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { UsersListComponent } from './components/users/users-list/users-list.component';
 import { EditUserComponent } from './components/users/edit-user/edit-user.component';
+import { CompanysListComponent } from './components/companys/companys-list/companys-list.component';
+import { AddCompanyComponent } from './components/companys/add-company/add-company.component';
+import { EditCompanyComponent } from './components/companys/edit-company/edit-company.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { EditUserComponent } from './components/users/edit-user/edit-user.compon
     LoginComponent,
     SignupComponent,
     UsersListComponent,
-    EditUserComponent
+    EditUserComponent,
+    CompanysListComponent,
+    AddCompanyComponent,
+    EditCompanyComponent
   ],
   imports: [
     BrowserModule,
