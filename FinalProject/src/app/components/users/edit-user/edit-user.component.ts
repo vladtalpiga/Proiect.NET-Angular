@@ -12,8 +12,8 @@ export class EditUserComponent {
 
   userDetails: User = {
     id: '',
-    firstname: '',
-    lastname: '',
+    firstName: '',
+    lastName: '',
     email: '',
     username: '',
     password: '',
