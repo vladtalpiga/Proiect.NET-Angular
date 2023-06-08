@@ -5,6 +5,8 @@ import { AddClientComponent } from './components/clients/add-client/add-client.c
 import { EditClientComponent } from './components/clients/edit-client/edit-client.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UsersListComponent } from './components/users/users-list/users-list.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent 
+  },
+  {
+    path: 'users',
+    component: UsersListComponent
+  },
+  {
+    path: 'users/edit/:id',
+    component: EditUserComponent
   }
 ];
 

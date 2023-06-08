@@ -6,12 +6,12 @@ using Project.API.Models;
 
 namespace Project.API.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
-    public class UserController : ControllerBase
+    [Route("api/[controller]")]
+    public class UsersController : ControllerBase
     {
         private readonly ProjectDbContext _projectDbContext;
-        public UserController(ProjectDbContext projectDbContext)
+        public UsersController(ProjectDbContext projectDbContext)
         {
             _projectDbContext = projectDbContext;
         }

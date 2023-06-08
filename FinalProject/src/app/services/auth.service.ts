@@ -14,11 +14,11 @@ export class AuthService {
   constructor(private http : HttpClient) { }
 
   signUp(userObj: User): Observable<User> {
-    userObj.id = 0;
-    return this.http.post<User>(this.baseApiUrl + '/api/User/register', userObj);
+    // userObj.id = 0;
+    return this.http.post<User>(this.baseApiUrl + '/api/users/register', userObj);
   }
 
   login(userObj: User): Observable<User> {
-    return this.http.post<User>(this.baseApiUrl + '/api/User/authenticate', userObj);
+    return this.http.post<User>(this.baseApiUrl + '/api/users/authenticate', userObj);
   }
 }

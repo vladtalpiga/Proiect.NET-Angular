@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EditClientComponent } from './components/clients/edit-client/edit-client.component';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
+import { UsersListComponent } from './components/users/users-list/users-list.component';
+import { EditUserComponent } from './components/users/edit-user/edit-user.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { SignupComponent } from './components/signup/signup.component';
     AddClientComponent,
     EditClientComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    UsersListComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
