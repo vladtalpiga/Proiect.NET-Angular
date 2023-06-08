@@ -15,13 +15,6 @@ namespace Project.API.Controllers
             _projectDbContext = projectDbContext;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> GetAllClients()
-        {
-            var clients = await _projectDbContext.Clients.ToListAsync();
-            return Ok(clients);
-        }
-
         [HttpPost]
         public async Task<IActionResult> AddClient([FromBody] Client clientRequest)
         {
@@ -30,6 +23,13 @@ namespace Project.API.Controllers
             await _projectDbContext.SaveChangesAsync();
 
             return Ok(clientRequest);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllClients()
+        {
+            var clients = await _projectDbContext.Clients.ToListAsync();
+            return Ok(clients);
         }
 
         [HttpGet]

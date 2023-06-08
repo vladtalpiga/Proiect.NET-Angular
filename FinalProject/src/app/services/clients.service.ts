@@ -13,13 +13,13 @@ export class ClientsService {
 
   constructor(private http: HttpClient) { }
 
-  getAllClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseApiUrl + '/api/clients');
-  }
-
   addClient(addClientRequest: Client): Observable<Client> {
     addClientRequest.id = '00000000-0000-0000-0000-000000000000';
     return this.http.post<Client>(this.baseApiUrl + '/api/clients', addClientRequest);
+  }
+
+  getAllClients(): Observable<Client[]> {
+    return this.http.get<Client[]>(this.baseApiUrl + '/api/clients');
   }
 
   getClient(id: string): Observable<Client> {

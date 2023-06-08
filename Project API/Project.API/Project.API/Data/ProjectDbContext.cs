@@ -13,6 +13,7 @@ namespace Project.API.Data
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Manager> Manager { get; set; }
         public DbSet<Facility> Facilities { get; set; }
+        public DbSet<Company> Companys { get; set; }
 
         //protected override void OnModelCreating(ModelBuilder modelBuilder)
         //{
